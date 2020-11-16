@@ -9,7 +9,7 @@ const getCards = (req, res) => {
   Card.find({})
     .populate('user')
     .then((data) => {
-      res.status(OkCode).send(data);
+      res.status(OkCode).send({ data: data });
     })
     .catch(() => {
       res.status(InternalServerErrorCode).send({ message: 'Ошибка: проблема на сервере' });
@@ -22,7 +22,7 @@ const createCard = (req, res) => {
   Card.create({ name, link, owner: req.user._id })
 
     .then((data) => {
-      res.status(OkCode).send({ data });
+      res.status(OkCode).send({ data: data });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') return res.status(BadRequestCode).send({ message: 'Ошибка: некорректные данные' });
@@ -34,7 +34,7 @@ const delCard = (req, res) => {
   Card.findByIdAndRemove(req.params.id)
     .orFail(new Error('NotFound'))
     .then((data) => {
-      res.status(OkCode).send({ data });
+      res.status(OkCode).send({ data: data });
     })
     .catch((err) => {
       if (err.message === 'NotFound') return res.status(NotFoundCode).send({ message: 'Ошибка: Карточка не найдена' });
@@ -51,7 +51,7 @@ const likeCard = (req, res) => {
   )
     .orFail(new Error('NotFound'))
     .then((data) => {
-      res.status(OkCode).send({ data });
+      res.status(OkCode).send({ data: data });
     })
     .catch((err) => {
       if (err.message === 'NotFound') return res.status(NotFoundCode).send({ message: 'Ошибка: Карточка не найдена' });
@@ -67,7 +67,7 @@ const disLikeCard = (req, res) => {
   )
     .orFail(new Error('NotFound'))
     .then((data) => {
-      res.status(OkCode).send({ data });
+      res.status(OkCode).send({ data: data });
     })
     .catch((err) => {
       if (err.message === 'NotFound') return res.status(NotFoundCode).send({ message: 'Ошибка: Карточка не найдена' });

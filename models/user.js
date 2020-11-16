@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        return /^((http|https:)\/\/(www\.)?([\w\W]{1,})\.([a-zA-z]{2,})([\w\W]{1,})?(#)?)$/.test(v);
+        return /^((https?:)\/\/(www\.)?([\w\W]{1,})\.([a-zA-z]{2,})([\w\W]{1,})?(#)?)$/.test(v);
       },
       message: 'Недопустимая ссылка!',
     },

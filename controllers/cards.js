@@ -31,7 +31,7 @@ const createCard = (req, res) => {
 };
 
 const delCard = (req, res) => {
-  Card.findByIdAndRemove(req.params.id)
+  Card.findByIdAndRemove(req.params._id)
     .orFail(new Error('NotFound'))
     .then((data) => {
       res.status(OkCode).send({ data: data });

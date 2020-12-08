@@ -7,7 +7,7 @@ const UnauthorizedError = require('../errors/unauthorized-err');
 
 const OkCode = 200;
 
-const getUsers = (req, res, , next) => {
+const getUsers = (req, res, next) => {
   User.find({})
     .then((data) => {
       res.send({ data: data });

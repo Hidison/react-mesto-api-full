@@ -1,0 +1,19 @@
+@import url(./__title/login__title.css);
+@import url(./__form/login__form.css);
+@import url(./__signup/login__signup.css);
+@import url(./__signup-link/login__signup-link.css);
+@import url(./__signup-text/login__signup-text.css);
+@import url(./__form-set/login__form-set.css);
+@import url(./__form-submit/login__form-submit.css);
+@import url(./__form-text/login__form-text.css);
+@import url(./__form-text/_type/login__form-text_type_password.css);
+
+.login {
+	padding-top: 60px;
+    width: 358px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    background: #000000;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}

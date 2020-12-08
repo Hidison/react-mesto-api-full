@@ -1,0 +1,13 @@
+@import url(./__button-like/element__button-like.css);
+@import url(./__image/element__image.css);
+@import url(./__place-like/element__place-like.css);
+@import url(./__like-count/element__like-count.css);
+@import url(./__remove_image/element__remove_image.css);
+@import url(./__info/element__info.css);
+@import url(./__title/element__title.css);
+
+.element {
+	position: relative;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}

@@ -1,0 +1,56 @@
+@import url(./__close-button/popup__close-button.css);
+@import url(./__container/popup__container.css);
+@import url(./__container/_type/popup__container_type_full-image.css);
+@import url(./__container/_type/popup__container_type_del-card.css);
+@import url(./__container/_type/popup__container_type_edit-avatar.css);
+@import url(./__form/popup__form.css);
+@import url(./__form/_type/popup__form_type_edit-avatar.css);
+@import url(./__form-text-error/popup__form-text-error.css);
+@import url(./__form-text-error/_active/popup__form-text-error_active.css);
+@import url(./__full-image/popup__full-image.css);
+@import url(./__form-submit/popup__form-submit.css);
+@import url(./__form-submit/type/popup__form-submit_type_del-card.css);
+@import url(./__form-text/popup__form-text.css);
+@import url(./__form-text/_type/popup__form-text_type_job.css);
+@import url(./__form-text/_type/popup__form-text_type_error.css);
+@import url(./__form-text/_type/popup__form-text_type_link.css);
+@import url(./__form-set/popup__form-set.css);
+@import url(./__title/popup__title.css);
+@import url(./__title/_type/popup__title_type_full-image.css);
+@import url(./__title/_type/popup__title_type_tool-tip.css);
+@import url(./__notice-text/popup__notice-text.css);
+@import url(./__notice-logo/popup__notice-logo.css);
+
+.popup {
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s, opacity 0.2s linear;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.popup:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2A2C2F;
+  opacity: 0.7;
+  z-index: -1;
+}

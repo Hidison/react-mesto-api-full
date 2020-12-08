@@ -1,0 +1,22 @@
+.login__form-text {
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #CCCCCC;
+	line-height: 17px;
+	padding-bottom: 9px;
+	padding-top: 6px;
+	background-color: #000000;
+	color: #FFFFFF;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.login__form-text:focus {
+	outline: none;
+}
+
+.login__form-text::placeholder {
+	color: #CCCCCC;
+}

@@ -47,14 +47,9 @@ const createUser = (req, res, next) => {
         password: hash,
       })
     )
-    .then((user) => res.status(201).send({
-      data: {
-        name: user.name,
-        about: user.about,
-        avatar: user.avatar,
-        email: user.email,
-      },
-    }))
+    .then((data) => {
+      res.status(201).send({ data: data });
+    })
     .catch((err) => {
       if (err.name === "ValidationError")
         throw new BadRequestError("некорректные данные");

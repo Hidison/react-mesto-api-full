@@ -31,6 +31,7 @@ function Login({ onSubmitClick, handleLogin }) {
     Auth.authorize(escape(email), escape(password))
       .then((data) => {
         if (data.token) {
+          console.log(data.token);
           handleLogin();
           history.push("/");
         }

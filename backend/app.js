@@ -1,5 +1,5 @@
 require('dotenv').config();
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: https://sash.students.nomoreparties.space");
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');

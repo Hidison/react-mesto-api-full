@@ -47,9 +47,14 @@ const createUser = (req, res, next) => {
         password: hash,
       })
     )
-    .then((data) => {
-      res.send({ data: data });
-    })
+    .then((user) => res.status(201).send({
+      data: {
+        name: user.name,
+        about: user.about,
+        avatar: user.avatar,
+        email: user.email,
+      },
+    }))
     .catch((err) => {
       if (err.name === "ValidationError")
         throw new BadRequestError("некорректные данные");
@@ -107,7 +112,8 @@ const login = (req, res, next) => {
 
       res.send({ token });
     })
-    .catch(next(new UnauthorizedError('Неправильные почта или пароль')));
+
+    .catch(() => next(new UnauthorizedError('Неправильные почта или пароль')));
 };
 
 module.exports = {

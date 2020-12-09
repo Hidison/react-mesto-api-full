@@ -9,11 +9,13 @@ function Login({ onSubmitClick, handleLogin }) {
   const escape = require("escape-html");
 
   function handleChangeEmail(e) {
-    setEmail(e.target.value);
+    setEmail(e.target.value)
+    console.log(email);
   }
 
   function handleChangePassword(e) {
     setPassword(e.target.value);
+    console.log(password);
   }
 
   function submitClick() {

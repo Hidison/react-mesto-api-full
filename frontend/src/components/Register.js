@@ -24,7 +24,7 @@ function Register({ onSubmitClick, handleRegister }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    Auth.register(email, password)
+    Auth.register(escape(email), escape(password))
       .then((res) => {
         if (res) {
           handleRegister();

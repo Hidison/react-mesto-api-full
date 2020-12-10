@@ -158,7 +158,7 @@ function App() {
 
   function tokenCheck() {
     const jwt = localStorage.getItem("jwt");
-    
+    console.log(jwt);
     if (jwt) {
       Auth.getContent(jwt).then((res) => {
         if (res) {

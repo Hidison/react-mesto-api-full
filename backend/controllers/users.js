@@ -28,7 +28,7 @@ const getUserInfo = (req, res, next) => {
   User.findById(req.user._id)
     .orFail(new NotFoundError("Пользователь не найдена"))
     .then((data) => {
-      res.send(data);
+      res.send({ data: data });
     })
     .catch(next);
 };

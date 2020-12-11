@@ -26,7 +26,9 @@ function Register({ onSubmitClick, handleRegister }) {
     e.preventDefault();
     Auth.register(escape(email), escape(password))
       .then((res) => {
-        if (res) {
+        if (JSON.stringify(res.data.email)) {
+          console.log(res);
+          console.log(JSON.stringify(res.data.email));
           handleRegister();
           history.push("/sign-in");
         } else {

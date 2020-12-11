@@ -74,12 +74,17 @@ function App() {
     setSelectedCard({ card, isOpen: true });
   }
 
+  function switchToFalseState() {
+    setTooltip(false);
+  }
+
   function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setInfoTooltipPopupOpen(false);
     setSelectedCard({ ...selectedCard, isOpen: false });
+    setTimeout(switchToFalseState, 500);
   }
 
   function handleUpdateUser(data) {
@@ -211,7 +216,6 @@ function App() {
             <Login
               onSubmitClick={handleSubmitClick}
               handleLogin={handleLogin}
-              Tooltip={Tooltip}
             />
           </Route>
           <Route>

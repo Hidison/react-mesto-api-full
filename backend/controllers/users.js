@@ -52,7 +52,11 @@ const createUser = (req, res, next) => {
       res.send({ data });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') throw new BadRequestError('некорректные данные');
+      if (err.name === 'ValidationError') {
+        throw new BadRequestError('некорректные данные');
+      } else if (err.name === 'MongoError' && err.code === 11000) {
+        throw new ConflictingRequestError('Пользователь с таким email уже зарегестрирован');
+      }
     })
     .catch(next);
 };
@@ -70,11 +74,7 @@ const updateUserPrifile = (req, res, next) => {
       res.send({ data });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') {
-        throw new BadRequestError('некорректные данные');
-      } else if (err.name === 'MongoError' && err.code === 11000) {
-        throw new ConflictingRequestError('Пользователь с таким email уже зарегестрирован');
-      }
+      if (err.name === 'ValidationError') throw new BadRequestError('некорректные данные');
     })
     .catch(next);
 };

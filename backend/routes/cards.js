@@ -1,10 +1,13 @@
 const cardRouter = require('express').Router();
-const { celebrate, Joi } = require('celebrate');
-const validator = require("validator");
+const { celebrate, Joi, CelebrateError } = require('celebrate');
+const validator = require('validator');
 
-  const validateUrl = (v) => {
-    return validator.isEmail(v);
-  };
+const validateUrl = (v) => {
+  if (validator.isURL(v)) {
+    return v;
+  }
+  throw new CelebrateError('Некорректный URL');
+};
 
 const {
   getCards, createCard, delCard, likeCard, disLikeCard,

@@ -3,8 +3,9 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const { celebrate, Joi } = require('celebrate');
+const { celebrate, Joi, CelebrateError } = require('celebrate');
 const { errors } = require('celebrate');
+const validator = require('validator');
 
 const userRouter = require('./routes/users.js');
 const cardRouter = require('./routes/cards.js');
@@ -38,20 +39,28 @@ app.get('/crash-test', () => {
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(6).max(15),
+    password: Joi.string().required().min(6),
   }),
 }), login);
 app.post('/signup', celebrate({
   body: Joi.object().keys({
+    name: Joi.string().min(2).max(30),
+    about: Joi.string().min(2).max(30),
+    avatar: Joi.string().custom((v) => {
+      if (validator.isURL(v)) {
+        return v;
+      }
+      throw new CelebrateError('Некорректный URL');
+    }),
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(6).max(15),
+    password: Joi.string().required().min(6),
   }),
 }), createUser);
 app.use(auth);
 app.use('/users', userRouter);
 app.use('/cards', cardRouter);
-app.use((req, res) => {
-  throw new NotFoundError("Запрашиваемый ресурс не найден")
+app.use(() => {
+  throw new NotFoundError('Запрашиваемый ресурс не найден');
 });
 
 app.use(errorLogger);
@@ -66,8 +75,10 @@ app.use((err, req, res, next) => {
     .send({
       message: statusCode === 500
         ? 'На сервере произошла ошибка'
-        : message
+        : message,
     });
+
+  next();
 });
 
 app.listen(PORT, () => {

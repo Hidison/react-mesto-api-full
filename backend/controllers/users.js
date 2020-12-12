@@ -49,7 +49,13 @@ const createUser = (req, res, next) => {
       password: hash,
     }))
     .then((data) => {
-      res.send({ data });
+      res.send({
+        name: data.name,
+        about: data.about,
+        avatar: data.avatar,
+        _id: data._id,
+        email: data.email,
+      });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

@@ -10,12 +10,10 @@ function Login({ onSubmitClick, handleLogin }) {
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
-    console.log(email);
   }
 
   function handleChangePassword(e) {
     setPassword(e.target.value);
-    console.log(password);
   }
 
   function submitClick() {
@@ -31,8 +29,6 @@ function Login({ onSubmitClick, handleLogin }) {
     Auth.authorize(escape(email), escape(password))
       .then((data) => {
         if (data.token) {
-          console.log(data);
-          console.log(data.token);
           handleLogin();
           history.push("/");
         }

@@ -10,12 +10,10 @@ function Register({ onSubmitClick, handleRegister }) {
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
-    console.log(email);
   }
 
   function handleChangePassword(e) {
     setPassword(e.target.value);
-    console.log(password);
   }
 
   function submitClick() {
@@ -26,9 +24,7 @@ function Register({ onSubmitClick, handleRegister }) {
     e.preventDefault();
     Auth.register(escape(email), escape(password))
       .then((res) => {
-        if (JSON.stringify(res.data.email)) {
-          console.log(res);
-          console.log(JSON.stringify(res.data.email));
+        if (JSON.stringify(res.email)) {
           handleRegister();
           history.push("/sign-in");
         } else {

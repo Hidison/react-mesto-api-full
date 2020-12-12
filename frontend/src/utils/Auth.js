@@ -9,8 +9,6 @@ export const register = (email, password) => {
     body: JSON.stringify({ email, password }),
   })
     .then((res) => {
-      console.log(email);
-      console.log(password);
       if (res.status === 400) {
         throw new Error("Некорректно заполнено одно из полей");
       } else {
@@ -64,7 +62,6 @@ export const getContent = (token) => {
     },
   })
     .then((res) => {
-      console.log(res);
       if (res.status === 200) {
         return res.json();
       }

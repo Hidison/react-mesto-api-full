@@ -12,7 +12,7 @@
 4. [Mesto (версия для сервера)](https://github.com/Hidison/express-mesto)
 5. Mesto (фронтенд + бэкенд)
 
-(На данный момент не работает)
- **Публичный IP: 84.201.147.81**
- **Доменное имя backend сервера c API:** [https://api.sash.students.nomoreparties.space]
+(На данный момент не работает). 
+ **Публичный IP: 84.201.147.81**. 
+ **Доменное имя backend сервера c API:** [https://api.sash.students.nomoreparties.space]. 
  **Домен для frontend:** [https://sash.students.nomoreparties.space]

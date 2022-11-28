@@ -1,5 +1,18 @@
-# Проект Mesto фронтенд + бэкенд
+# Mesto Russia (фронтенд + бэкенд)
+------------------
 
-* **Публичный IP: 84.201.147.81**
-* **Доменное имя backend сервера c API:** [https://api.sash.students.nomoreparties.space]
-* **Домен для frontend:** [https://sash.students.nomoreparties.space]
+Проект о популярных местах России. В проекте представлены немало пейзажей красивых мест России. Например: Карачаевск, Гора Эльбрус и Домбай. Данный проект сделан по методолгии **БЭМ**. Проект адаптирован на самые популярные устройства: смартфоны, планшеты, ноутбуки и компьютеры. Ссылкам задано состояние при наведении на них указателя мыши :hover. Для создания сетки использовался **grid layout**. Через специальную форму можно изменять имя человека и его деятельность. Вся фунциональность данного проекта реализована с помощью **React JS (хуки, глобальный стейт, рефы)**. Авторизация и регистрация реализована с помощью: **React Router, Protected Route, JWT, Local Storage**. Серверная часть реализована с помощью таких технологий, как **Node.js**, **Express.js**, **MongoDB**, **Mongoose**. 
+
+Бэкенд расположите в директории `backend/`, а фронтенд - в `frontend/`. 
+
+Это часть учебного проекта Mesto:
+1. [Mesto](https://github.com/Hidison/mesto)
+2. [Mesto (версия на React JS)](https://github.com/Hidison/mesto-react)
+3. [Mesto (версия на React JS с авторизацией и регистрацией)](https://github.com/Hidison/react-mesto-auth)
+4. [Mesto (версия для сервера)](https://github.com/Hidison/express-mesto)
+5. Mesto (фронтенд + бэкенд)
+
+(На данный момент не работает)
+ **Публичный IP: 84.201.147.81**
+ **Доменное имя backend сервера c API:** [https://api.sash.students.nomoreparties.space]
+ **Домен для frontend:** [https://sash.students.nomoreparties.space]
